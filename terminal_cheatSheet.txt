@@ -1,0 +1,326 @@
+LINUX COMMANDS - EASY LEARNING CHEAT SHEET
+==========================================
+
+This file organizes essential Linux commands by purpose, with short explanations
+and examples for quick learning and revision.
+
+--------------------------------------------------
+1. NAVIGATION AND DIRECTORY MANAGEMENT
+--------------------------------------------------
+
+cd  : Change directory
+  cd                       -> Go to home directory
+  cd ..                    -> Go up one level
+  cd -                     -> Go to previous directory
+  cd /path/to/dir          -> Go to a specific path
+
+pwd : Print current working directory
+  pwd
+
+ls  : List files and directories
+  ls
+  ls -l                    -> Long listing
+  ls -a                    -> Show hidden files
+  ls -lh                   -> Human readable sizes
+  ls -la                   -> Common detailed view
+  ls -lt                   -> Sort by modified time
+
+tree : Show directory structure as a tree
+  tree
+  sudo apt install tree
+
+mkdir : Create directories
+  mkdir folder
+  mkdir -p a/b/c
+  mkdir -p website/static/{css,js}
+
+rmdir : Remove empty directory
+  rmdir folder
+
+pushd/popd : Directory stack
+  pushd dir                -> Save current dir and move
+  popd                     -> Return to last dir
+
+--------------------------------------------------
+2. FILE CREATION, COPY, MOVE, AND DELETE
+--------------------------------------------------
+
+touch : Create empty file or update timestamp
+  touch file.txt
+
+rm : Delete files
+  rm file.txt
+  rm -r folder/
+  rm -rf folder/           -> Force delete (DANGEROUS)
+
+cp : Copy files and directories
+  cp file1 file2
+  cp -r dir1 dir2
+  cp -a dir1 dir2           -> Preserve attributes
+
+mv : Move or rename files
+  mv old.txt new.txt
+  mv file.txt folder/
+  mv -i file.txt folder/    -> Prompt before overwrite
+
+stat : Show detailed file info
+  stat file.txt
+
+file : Detect file type
+  file script.sh
+
+--------------------------------------------------
+3. FILE VIEWING AND EDITING
+--------------------------------------------------
+
+cat  : Show full file content
+  cat file.txt
+
+less : View file page by page
+  less file.txt
+
+more : Older pager command
+  more file.txt
+
+head : Show first lines
+  head file.txt
+
+tail : Show last lines
+  tail file.txt
+  tail -f logfile.log      -> Live log monitoring
+
+nl : Show line numbers
+  nl file.txt
+
+nano : Beginner friendly editor
+  nano file.txt
+
+vi/vim : Advanced editor
+  vi file.txt
+  vim file.txt
+
+--------------------------------------------------
+4. SEARCHING AND TEXT PROCESSING
+--------------------------------------------------
+
+grep : Search text
+  grep word file.txt
+  grep -i word file.txt     -> Case insensitive
+  grep -r word folder/      -> Recursive
+
+find : Search files
+  find . -name "*.txt"
+  find / -size +100M
+
+wc : Word, line, byte count
+  wc file.txt
+
+sort : Sort text
+  sort file.txt
+
+uniq : Remove duplicates
+  uniq file.txt
+
+cut : Extract columns
+  cut -d":" -f1 /etc/passwd
+
+awk : Powerful text processing
+  awk '{print $1}' file.txt
+
+sed : Stream editor
+  sed 's/old/new/g' file.txt
+
+xargs : Build commands from input
+  xargs
+
+tr : Translate or delete characters
+  tr -d '\r' file.txt       -> Remove CR characters
+
+--------------------------------------------------
+5. SYSTEM INFO AND HARDWARE
+--------------------------------------------------
+
+uname : System information
+  uname -a
+
+hostname : Show system hostname
+  hostname
+
+df : Disk usage
+  df -h
+
+du : Folder size
+  du -sh folder/
+
+free : Memory usage
+  free -h
+
+lsblk : Block devices (disks)
+  lsblk
+
+mount : Mounted filesystems
+  mount
+
+lscpu : CPU information
+  lscpu
+
+--------------------------------------------------
+6. PROCESS AND RESOURCE MANAGEMENT
+--------------------------------------------------
+
+ps : Process list
+  ps aux
+
+top : Live process view
+  top
+
+htop : Enhanced top
+  htop
+
+kill : Kill process
+  kill PID
+
+killall : Kill by name
+  killall process_name
+
+uptime : System running time
+  uptime
+
+watch : Run command repeatedly
+  watch df -h
+
+jobs/bg/fg : Background jobs
+  jobs
+  bg
+  fg
+
+--------------------------------------------------
+7. PERMISSIONS AND USERS
+--------------------------------------------------
+
+chmod : Change permissions
+  chmod 755 file.sh
+  chmod u+x file.sh         -> Add execute bit
+
+chown : Change owner
+  chown user:group file.txt
+
+whoami : Current user
+  whoami
+
+who : Logged in users
+  who
+
+id : User ID info
+  id
+
+su/sudo : Switch user
+  su
+  sudo command
+
+--------------------------------------------------
+8. NETWORKING
+--------------------------------------------------
+
+ip : Network interfaces and routes
+  ip a
+  ip r
+
+ping : Check connectivity
+  ping google.com
+
+traceroute : Network path
+  traceroute google.com
+
+ss : Modern socket statistics
+  ss -tuln
+
+netstat : Legacy networking tool
+  netstat -tuln
+
+curl : Fetch URLs
+  curl https://example.com
+
+wget : Download files
+  wget https://example.com/file.zip
+
+--------------------------------------------------
+9. PACKAGE MANAGEMENT (APT)
+--------------------------------------------------
+
+sudo apt update        : Update package list
+sudo apt upgrade       : Upgrade system
+sudo apt install pkg   : Install package
+sudo apt remove pkg    : Remove package
+sudo apt autoremove    : Remove unused deps
+sudo apt clean         : Clear cache
+
+--------------------------------------------------
+10. ARCHIVES AND COMPRESSION
+--------------------------------------------------
+
+tar : Archive files
+  tar -cvf archive.tar folder/
+  tar -xvf archive.tar
+
+gzip : Compress
+  gzip file.txt
+
+gunzip : Decompress
+  gunzip file.txt.gz
+
+zip : Create zip
+  zip archive.zip file.txt
+
+unzip : Extract zip
+  unzip archive.zip
+
+--------------------------------------------------
+11. ENVIRONMENT AND SHELL
+--------------------------------------------------
+
+echo : Print text
+  echo "Hello World"
+
+env : Show environment variables
+  env
+
+export : Set variables
+  export VAR=value
+
+history : Command history
+  history
+
+clear : Clear terminal
+  clear
+
+alias : Create shortcuts
+  alias ll='ls -la'
+
+source : Reload shell config
+  source ~/.bashrc
+
+which : Locate executable
+  which python
+
+whereis : Find binary and man page
+  whereis bash
+
+--------------------------------------------------
+12. DOCUMENTATION AND HELP
+--------------------------------------------------
+
+man : Command manual
+  man ls
+
+--help : Quick help
+  ls --help
+
+info : GNU documentation
+  info ls
+
+tldr : Quick help (install tldr)
+  tldr ls
+
+--------------------------------------------------
+END OF FILE
